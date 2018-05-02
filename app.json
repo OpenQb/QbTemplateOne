@@ -1,0 +1,22 @@
+{
+    "name"			: "QbTemplateOne",
+	"version"		: "1.0.0",
+    "build"         : 1,
+    "namespace"		: "com.github.openqb.QbTemplateOne",
+	
+	"supportedOs"   : ["android","ios","osx","windows","linux"],
+    "tags"          : "template",
+
+    "category"      : "Applications/Games",
+    "subCategory"   : "",
+    "genre"   		: "",
+	
+    "minQbVersion"  : "1.1.0",
+    "appVariant"    : "APP",
+    "packageVariant": "QAP",
+
+    "description"   : "QbTemplateOne is a app template for Qb for fast prototyping",
+
+    "author"		: [{"name":"Kawser","link":"https://github.com/mkawserm"}],
+    "projectLink"	: [{"name":"GitHub","link":"OpenQb/QbTemplateOne"}]
+}
