@@ -5,6 +5,7 @@ QbTemplateOne is an app template for Qb for fast prototyping
 
 # "app.json" file format
 
+```javascript
 {
 "name"          : "QbTemplateOne",
 "version"       : "1.0.0",
@@ -27,3 +28,4 @@ QbTemplateOne is an app template for Qb for fast prototyping
 "author"		: [{"name":"Kawser","link":"https://github.com/mkawserm"}],
 "projectLink"	: [{"name":"GitHub","link":"OpenQb/QbTemplateOne"}]
 }
+```
