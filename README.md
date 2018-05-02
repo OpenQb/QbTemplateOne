@@ -15,7 +15,12 @@ QbTemplateOne is an app template for Qb for fast prototyping
 "supportedOs"   : ["android","ios","osx","windows","linux"],
 
 "tags"          : "template",
-"category"      : "Applications", /*Applications or Games*/
+"category"      : "Applications",
+/***
+Applications or
+Games
+***/
+
 "subCategory"   : "",
 "genre"         : "",
 /***
