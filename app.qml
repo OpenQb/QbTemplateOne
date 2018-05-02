@@ -151,7 +151,7 @@ QbApp {
                 }
             }
             Behavior on width {
-                NumberAnimation { duration: 300 }
+                NumberAnimation { duration: 300;easing.type: Easing.InOutCubic }
             }
         }
 
@@ -177,7 +177,7 @@ QbApp {
             }
 
             Behavior on width {
-                NumberAnimation { duration: 300 }
+                NumberAnimation { duration: 300;easing.type: Easing.InOutCubic }
             }
         }
 
