@@ -58,22 +58,27 @@ function isDark(color){
 }
 
 
-function addDockItem(jsobject){
-    objLeftDock.addIcon(jsobject);
+/* Methods for LeftDock */
+function addDockItem(icon,title,callable){
+    objLeftDock.addIcon({"icon":icon,"title":title});
+    objLeftDock.callableList.push(callable);
 }
 
-function insertDockItem(index,jsobject){
-    objLeftDock.insertIcon(index,jsobject);
+function insertDockItem(index,icon,title,callable){
+    objLeftDock.insertIcon(index,{"icon":icon,"title":title});
+    objLeftDock.callableList.splice(index, 0, callable);
 }
 
-function pushDockItem(jsobject){
-    objLeftDock.addIcon(jsobject);
+function pushDockItem(icon,title,callable){
+    objLeftDock.addDockItem(icon,title,callable);
 }
 
 function popDockItem(){
     var i = totalDockItems()-1;
     var di = dockItemAt(i);
-    removeDockItemByIndex(i)
+    removeDockItemByIndex(i);
+    di["callable"] = objLeftDock.callableList[i];
+    objLeftDock.callableList.splice(i, 1);
     return di;
 }
 
@@ -83,15 +88,27 @@ function totalDockItems(){
 
 function clearDockItems(){
     objLeftDock.clearAllIcons();
+    objLeftDock.callableList.clear();
 }
 
 function dockItemAt(index){
-    return objLeftDock.iconAt(index);
+    var di = objLeftDock.iconAt(index);
+    di["callable"] = objLeftDock.callableList[i];
+    return di;
 }
 
 function removeDockItemByIndex(index){
-    objLeftDock.removeIcon(index);
+    try{
+        objLeftDock.removeIcon(index);
+        objLeftDock.callableList.splice(index, 1);
+    }
+    catch(e){
+        console.log("ERROR on removeDockItemByIndex: "+index);
+        console.log(e);
+    }
 }
+/* END Methods for LeftDock */
+
 
 
 
@@ -104,4 +121,12 @@ function onGridStateChanged(callable){
 
 function gridState(){
     return objAppUi.gridState;
+}
+
+function showDock(){
+    objLeftDock.open();
+}
+
+function hideDock(){
+    objLeftDock.close();
 }

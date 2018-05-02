@@ -16,6 +16,8 @@ Rectangle{
     z: -10000000
     focus: false
     property bool isOpened: false
+    property var callableList: []
+
     Behavior on x{
         NumberAnimation{
             duration: 100
@@ -201,10 +203,33 @@ Rectangle{
     }
 
     ListView{
+        id: objLeftDockView
         anchors.top: listButton.bottom
         anchors.bottom: bottomButton.top
         width: parent.width
         clip: true
         model: objLeftDockModel
+        delegate: Item{
+            id: objLeftDockDelegate
+            width: objLeftDockView.width
+            height: objLeftDockView.width
+
+            Text{
+                anchors.fill: parent
+                text: title
+                color: "white"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                preventStealing: true
+                onClicked: {
+
+                    if(objLeftDock.callableList[index]){
+                        objLeftDock.callableList[index](0,0);
+                    }
+                }
+            }
+        }
     }
 }
