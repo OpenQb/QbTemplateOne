@@ -454,4 +454,8 @@ QbApp {
         hideRightSideBar();
         objTopToolBar.resetAnimationState();
     }
+
+    function  getCurrentPage(){
+        return objMainView.currentItem;
+    }
 }

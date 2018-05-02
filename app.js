@@ -19,6 +19,7 @@ var objRightSideBar;
 var appLeftSideBarLoader;
 var appRightSideBarLoader;
 
+
 function setup(appUi){
     objAppUi = appUi;
 
@@ -34,6 +35,10 @@ function setup(appUi){
 
 function addPage(page,jsobject){
     objAppUi.pushPage(page,jsobject);
+}
+
+function getCurrentPage(){
+    return objAppUi.getCurrentPage();
 }
 
 function closePage(index){
@@ -86,4 +91,17 @@ function dockItemAt(index){
 
 function removeDockItemByIndex(index){
     objLeftDock.removeIcon(index);
+}
+
+
+
+function onGridStateChanged(callable){
+    if(callable){
+        objAppUi.gridStateChanged.connect(callable);
+        callable();
+    }
+}
+
+function gridState(){
+    return objAppUi.gridState;
 }
