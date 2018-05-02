@@ -15,7 +15,7 @@
     "appVariant"    : "APP",
     "packageVariant": "QAP",
 
-    "description"   : "QbTemplateOne is a app template for Qb for fast prototyping",
+    "description"   : "QbTemplateOne is an app template for Qb for fast prototyping",
 
     "author"		: [{"name":"Kawser","link":"https://github.com/mkawserm"}],
     "projectLink"	: [{"name":"GitHub","link":"OpenQb/QbTemplateOne"}]
