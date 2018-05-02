@@ -148,7 +148,7 @@ Rectangle{
 
             font.family: QbMF3.family
             font.bold: true
-            font.pixelSize: parent.height*0.50
+            font.pixelSize: parent.height*0.60
         }
 
         MouseArea{
@@ -211,23 +211,52 @@ Rectangle{
         model: objLeftDockModel
         delegate: Item{
             id: objLeftDockDelegate
+            property bool showToolTip: false
             width: objLeftDockView.width
             height: objLeftDockView.width
+            ToolTip.text: title
+            ToolTip.visible: showToolTip
 
             Text{
                 anchors.fill: parent
-                text: title
                 color: "white"
+                text: QbCoreOne.icon_font_text_code(icon)
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                font.family: QbCoreOne.icon_font_name(icon)
+                font.bold: false
+                font.pixelSize: objLeftDockDelegate.height*0.60
+                visible: QbCoreOne.icon_font_is_text(icon)
+            }
+
+            Image{
+                width: parent.width*0.70
+                height: parent.height*0.70
+                anchors.centerIn: parent
+                visible: QbCoreOne.icon_font_is_image(icon)
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                mipmap: true
+                smooth: true
+                sourceSize.width: parent.width*2
+                sourceSize.height: parent.height*2
+                source: visible?icon:""
             }
 
             MouseArea{
                 anchors.fill: parent
                 preventStealing: true
                 onClicked: {
-
+                    var gco = objLeftDockDelegate.mapToItem(objLeftDock, 0, 0);
                     if(objLeftDock.callableList[index]){
-                        objLeftDock.callableList[index](0,0);
+                        objLeftDock.callableList[index](gco.x,gco.y);
                     }
+                }
+                onPressAndHold: {
+                    objLeftDockDelegate.showToolTip = true;
+                }
+                onReleased: {
+                    objLeftDockDelegate.showToolTip = false;
                 }
             }
         }

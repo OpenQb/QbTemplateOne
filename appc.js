@@ -5,13 +5,17 @@
   Keep all custom global js code here
 ***************************************************************************************************/
 
-function vpnLockCallback(x,y){
-    console.log("VPN LOCK CALLED");
-    //App.hideDock();
+function testCallback(x,y){
+    console.log("X:"+x);
+    console.log("Y:"+y);
+    console.log("testCallback called");
+    App.hideDock();
 }
 
 function setup(){
-    App.addDockItem("mf-vpn_lock","VPN Lock",vpnLockCallback);
+    App.addDockItem("fa-times-circle-o","Times Circle",testCallback);
+    App.addDockItem("mf-watch","Watch",testCallback);
+    App.addDockItem(App.resolveURL("/app.png"),"Qb Logo",testCallback);
 
     App.onGridStateChanged(function(){console.log(App.gridState())});
     App.addPage("/pages/TestPage.qml");

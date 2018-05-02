@@ -130,3 +130,7 @@ function showDock(){
 function hideDock(){
     objLeftDock.close();
 }
+
+function resolveURL(path){
+    return objAppUi.absoluteURL(path);
+}
