@@ -15,11 +15,12 @@ QbTemplateOne is an app template for Qb for fast prototyping
 "supportedOs"   : ["android","ios","osx","windows","linux"],
 
 "tags"          : "template",
-"category"      : "Applications", /*Applications/Games*/
+"category"      : "Applications", /*Applications or Games*/
 "subCategory"   : "",
-"genre"         : "", /*
+"genre"         : "",
+/***
 Genre
-
+------
 For Games:
 Action		Board		Educational	Racing		Strategy
 Adventure	Card		Music		Role Playing	Trivia
@@ -38,15 +39,20 @@ Education		Medical			Travel & Local
 Entertainment		Music & Audio		Video Players & Editors
 Events			News & Magazines	Weather
 
-*/
+***/
 
 "minQbVersion"  : "1.1.0",
 "appVariant"    : "APP",
-"packageVariant": "QAP", /* QAP or QXP or QFP(file based)*/
+"packageVariant": "QAP",
+/***
+QAP (Non protected single file) or
+QXP (Source code protected single file) or
+QFP (filesystem based)
+***/
 
 "description"   : "QbTemplateOne is an app template for Qb for fast prototyping",
 
-"author"		: [{"name":"Kawser","link":"https://github.com/mkawserm"}],
+"author"        : [{"name":"Kawser","link":"https://github.com/mkawserm"}],
 "projectLink"	: [{"name":"GitHub","link":"OpenQb/QbTemplateOne"}]
 }
 ```
