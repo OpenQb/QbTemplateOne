@@ -32,8 +32,8 @@ function setup(appUi){
     objAppTheme.setThemeFromJsonData(JSON.stringify(themeOne));
 }
 
-function addPage(page){
-    objAppUi.pushPage(page);
+function addPage(page,jsobject){
+    objAppUi.pushPage(page,jsobject);
 }
 
 function closePage(index){
