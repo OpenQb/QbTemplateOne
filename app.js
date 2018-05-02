@@ -30,10 +30,6 @@ function setup(appUi){
     themeOne["foreground"] = "black";
     themeOne["theme"] = "dark";
     objAppTheme.setThemeFromJsonData(JSON.stringify(themeOne));
-
-    addPage("/pages/TestPage.qml");
-    addPage("/pages/TestPage2.qml");
-    addPage("/pages/TestPage3.qml");
 }
 
 function addPage(page){

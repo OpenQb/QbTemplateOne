@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.3
 import Qb 1.0
 import Qb.Core 1.0
 import "app.js" as App
+import "appc.js" as Appc
 
 QbApp {
     id: objAppUi
@@ -61,6 +62,7 @@ QbApp {
         App.objLeftDock = objLeftDock;
 
         App.setup(objAppUi);
+        Appc.setup();
     }
 
     QbMetaTheme{
