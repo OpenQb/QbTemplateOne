@@ -13,7 +13,7 @@
 	
     "minQbVersion"  : "1.1.0",
     "appVariant"    : "APP",
-    "packageVariant": "QAP",
+    "packageVariant": "QXP",
 
     "description"   : "QbTemplateOne is an app template for Qb for fast prototyping",
 
