@@ -14,6 +14,7 @@ QbApp {
     property string gridState: "xs"
     property int leftSideBarWidth: 0
     property int rightSideBarWidth: 0
+    clip:true
 
     onWidthChanged: {
         appResized();
