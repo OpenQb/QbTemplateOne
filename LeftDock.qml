@@ -68,6 +68,7 @@ Rectangle{
             property int index: 0
             highlighted: false
             onTriggered: {
+                objMainView.oldIndex = objMainView.currentIndex;
                 objMainView.currentIndex = index;
                 objLeftDock.close();
             }

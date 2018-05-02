@@ -15,6 +15,19 @@ Page{
     leftPadding: 0
     rightPadding: 0
 
+    signal pageOpened();
+    signal pageHidden();
+    signal pageClosing();
+    signal pageCreated();
+
+    Component.onCompleted: {
+        objPage.pageCreated();
+    }
+
+    Component.onDestruction: {
+        objPage.pageClosing();
+    }
+
     property string appId: App.objAppUi.appId;
     property var appJS: App
     property var appcJS: Appc

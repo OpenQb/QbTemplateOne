@@ -183,14 +183,24 @@ QbApp {
 
         SwipeView{
             id: objMainView
+            property int oldIndex: 0
             interactive: false
             anchors.top: objTopToolBar.bottom
             anchors.bottom: objBottomToolBar.top
             anchors.left: parent.left
             anchors.right: parent.right
             onCurrentIndexChanged: {
+                if(objMainView.oldIndex!=objMainView.currentIndex && objMainView.oldIndex !=-1){
+                    try{
+                        objMainView.itemAt(objMainView.oldIndex).pageHidden();
+                    }
+                    catch(e){
+                    }
+                }
+
                 try{
                     setupPage2(objMainView.currentItem);
+                    objMainView.currentItem.pageOpened();
                 }
                 catch(e){
                 }
@@ -349,8 +359,11 @@ QbApp {
     function popPage(){
         if(objMainView.count>1){
             try{
+                objMainView.oldIndex = -1;
                 objLeftDock.removeRunningPage(objMainView.currentIndex);
-                delete objMainView.takeItem(objMainView.currentIndex);
+                var item = objMainView.takeItem(objMainView.currentIndex);
+                item.pageHidden();
+                delete item;
             }
             catch(e){
             }
@@ -360,8 +373,11 @@ QbApp {
     function removePage(index){
         if(objMainView.count>1){
             try{
+                objMainView.oldIndex = -1;
                 objLeftDock.removeRunningPage(index);
-                delete objMainView.takeItem(index);
+                var item = objMainView.takeItem(index);
+                item.pageHidden();
+                delete item;
             }
             catch(e){
             }
@@ -370,11 +386,13 @@ QbApp {
 
     function prevPage(){
         if(objMainView.currentIndex>0){
+            objMainView.oldIndex = objMainView.currentIndex;
             objMainView.setCurrentIndex(objMainView.currentIndex-1);
         }
     }
     function nextPage(){
         if(objMainView.currentIndex<(objMainView.count-1)){
+            objMainView.oldIndex = objMainView.currentIndex;
             objMainView.setCurrentIndex(objMainView.currentIndex+1);
         }
     }
@@ -406,6 +424,7 @@ QbApp {
     }
 
     function setupPage(objPage){
+        objMainView.oldIndex = objMainView.currentIndex;
         var cpage = objPage;
         objLeftDock.addRunningPage(cpage.title);
         objTopToolBar.appToolBar.sourceComponent = cpage.topBar;
