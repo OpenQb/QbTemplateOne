@@ -161,6 +161,10 @@ function fileList(rpath){
     return objPackageReader.fileList(rpath);
 }
 
+function getList(rpath){
+    return objPackageReader.getList(rpath);
+}
+
 function getFile(rpath){
     return objPackageReader.get(rpath);
 }

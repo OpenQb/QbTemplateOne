@@ -17,6 +17,8 @@ function setup(){
     App.addDockItem("mf-watch","Watch",testCallback);
     App.addDockItem(App.resolveURL("/app.png"),"Qb Logo",testCallback);
 
+    console.log(App.getList("/"));
+
     App.onGridStateChanged(function(){console.log(App.gridState())});
     App.addPage("/pages/TestPage.qml");
     App.addPage("/pages/TestPage2.qml");
