@@ -18,4 +18,7 @@ Project {
     Files{
         paths:"./appimage.json"
     }
+    Files{
+        paths:"./README.md"
+    }
 }

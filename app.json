@@ -7,7 +7,7 @@
 	"supportedOs"   : ["android","ios","osx","windows","linux"],
     "tags"          : "template",
 
-    "category"      : "Applications/Games",
+    "category"      : "Applications",
     "subCategory"   : "",
     "genre"   		: "",
 	

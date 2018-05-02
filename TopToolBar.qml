@@ -51,8 +51,8 @@ ToolBar{
         }
         color: objAppTheme.secondary
         textColor: objAppTheme.isDark(objAppTheme.secondary)?"white":"black"
-        hoverBackgroundColor: objAppTheme.complementaryColor(objAppTheme.secondary)
-        hoverTextColor:objAppTheme.isDark(hoverBackgroundColor)?"white":"black"
+        hoverBackgroundColor: "black"
+        hoverTextColor: "red"
     }
 
     Column{
@@ -103,6 +103,7 @@ ToolBar{
                 text: QbMF3.icon("mf-menu")
                 font.family: QbMF3.family
                 visible: appLeftSiderBarVisible
+                font.pixelSize: width*0.40
                 onClicked: {
                     leftSideBarClicked();
                     if(rotation == 0){
@@ -131,6 +132,7 @@ ToolBar{
                     visible: appPrevButtonVisible
                     text: QbMF3.icon("mf-keyboard_arrow_left")
                     font.family: QbMF3.family
+                    font.pixelSize: width*0.40
                     onClicked: {
                         objLeftSideBarButton.rotation = 0;
                         objRightSideBarButton.rotation = 0;
@@ -146,6 +148,7 @@ ToolBar{
                     visible: appNextButtonVisible
                     text: QbMF3.icon("mf-keyboard_arrow_right")
                     font.family: QbMF3.family
+                    font.pixelSize: width*0.40
                     onClicked: {
                         objLeftSideBarButton.rotation = 0;
                         objRightSideBarButton.rotation = 0;
@@ -161,6 +164,7 @@ ToolBar{
                 height: parent.height
                 width: height
                 text: QbMF3.icon("mf-menu")
+                font.pixelSize: width*0.40
                 font.family: QbMF3.family
                 visible: appRightSiderBarVisible
                 onClicked: {

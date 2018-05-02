@@ -20,6 +20,7 @@ Rectangle{
         horizontalAlignment: Text.AlignHCenter
         font.family: QbMF3.family
         color: textColor;
+        font.pixelSize: width*0.40
     }
 
     MouseArea{
@@ -36,7 +37,6 @@ Rectangle{
 
             objButton.oldTextColor = objButton.textColor;
             objButton.textColor = objButton.hoverTextColor;
-
         }
 
         onExited: {
