@@ -21,4 +21,7 @@ Project {
     Files{
         paths:"./README.md"
     }
+    Files{
+        paths:"./LICENSE"
+    }
 }
