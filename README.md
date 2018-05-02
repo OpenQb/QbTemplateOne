@@ -17,7 +17,28 @@ QbTemplateOne is an app template for Qb for fast prototyping
 "tags"          : "template",
 "category"      : "Applications", /*Applications/Games*/
 "subCategory"   : "",
-"genre"   		: "",
+"genre"         : "", /*
+Genre
+
+For Games:
+Action		Board		Educational	Racing		Strategy
+Adventure	Card		Music		Role Playing	Trivia
+Arcade		Casino		Puzzle		Sports		Word
+
+For Applications:
+Art & Design		Family			Parenting
+Auto & Vehicles		Finance			Personalization
+Beauty			Food & Drink		Photography
+Books & Reference	Health & Fitness	Productivity
+Business		House & Home		Shopping
+Comics			Libraries & Demo	Social
+Communication		Lifestyle		Sports
+Dating			Maps & Navigation	Tools
+Education		Medical			Travel & Local
+Entertainment		Music & Audio		Video Players & Editors
+Events			News & Magazines	Weather
+
+*/
 
 "minQbVersion"  : "1.1.0",
 "appVariant"    : "APP",
