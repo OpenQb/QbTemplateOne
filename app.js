@@ -51,3 +51,39 @@ function removePage(index){
 function isDark(color){
     return objAppTheme.isDark(color);
 }
+
+
+function addDockItem(jsobject){
+    objLeftDock.addIcon(jsobject);
+}
+
+function insertDockItem(index,jsobject){
+    objLeftDock.insertIcon(index,jsobject);
+}
+
+function pushDockItem(jsobject){
+    objLeftDock.addIcon(jsobject);
+}
+
+function popDockItem(){
+    var i = totalDockItems()-1;
+    var di = dockItemAt(i);
+    removeDockItemByIndex(i)
+    return di;
+}
+
+function totalDockItems(){
+    return objLeftDock.totalIcons;
+}
+
+function clearDockItems(){
+    objLeftDock.clearAllIcons();
+}
+
+function dockItemAt(index){
+    return objLeftDock.iconAt(index);
+}
+
+function removeDockItemByIndex(index){
+    objLeftDock.removeIcon(index);
+}

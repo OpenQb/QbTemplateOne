@@ -51,6 +51,14 @@ Rectangle{
         objLeftDockModel.insert(index,data);
     }
 
+    function totalIcons(){
+        return objLeftDockModel.count;
+    }
+
+    function iconAt(index){
+        return objLeftDockModel.get(index);
+    }
+
     function removeIcon(index){
         try{
             objLeftDockModel.remove(index);
@@ -144,7 +152,12 @@ Rectangle{
         MouseArea{
             anchors.fill: parent
             onClicked:{
-                objRunningPageList.popup(listButton.width,0);
+                if(objRunningPageList.visible){
+                    objRunningPageList.close();
+                }
+                else{
+                    objRunningPageList.popup(listButton.width,0);
+                }
             }
         }
     }
