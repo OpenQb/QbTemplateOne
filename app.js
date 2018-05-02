@@ -131,6 +131,41 @@ function hideDock(){
     objLeftDock.close();
 }
 
+/** Different path resolver **/
 function resolveURL(path){
     return objAppUi.absoluteURL(path);
 }
+
+function resolvePath(path){
+    return objAppUi.absolutePath(path);
+}
+
+function resolveDataPath(path){
+    return objAppUi.absoluteDataPath(path);
+}
+
+function resolveDatabasePath(dbname){
+    return objAppUi.absoluteDatabasePath(dbname);
+}
+
+/** QbAppPackageReader methods **/
+function isFile(rpath){
+    return objPackageReader.isFile(rpath);
+}
+
+function isExists(rpath){
+    return objPackageReader.isExists(rpath);
+}
+
+function fileList(rpath){
+    return objPackageReader.fileList(rpath);
+}
+
+function getFile(rpath){
+    return objPackageReader.get(rpath);
+}
+
+function extract(src,dest){
+    return objPackageReader.extract(src,dest);
+}
+/** END QbAppPackageReader **/
