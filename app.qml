@@ -316,22 +316,33 @@ QbApp {
 
     function pushPage(page,jsobject){
         var component = Qt.createComponent(objAppUi.absoluteURL(page));
-        var incubator;
-        if(jsobject !== undefined){
-            incubator = component.incubateObject(objMainView,jsobject);
-        }
-        else{
-            incubator = component.incubateObject(objMainView);
-        }
-        if (incubator.status !== Component.Ready) {
-            incubator.onStatusChanged = function(status) {
-                if (status === Component.Ready) {
-                    setupPage(incubator.object);
-                }
+        var incubator = null;
+        if(component.status === Component.Ready){
+            if(jsobject !== undefined){
+                incubator = component.incubateObject(objMainView,jsobject);
+            }
+            else{
+                incubator = component.incubateObject(objMainView);
             }
         }
-        else {
-            setupPage(incubator.object);
+
+        if(incubator !== null){
+            if (incubator.status !== Component.Ready) {
+                incubator.onStatusChanged = function(status) {
+                    if (status === Component.Ready) {
+                        setupPage(incubator.object);
+                    }
+                    else if(status === Component.Error){
+                        console.log("Error on adding page: "+component.errorString());
+                    }
+                }
+            }
+            else {
+                setupPage(incubator.object);
+            }
+        }
+        else{
+            console.log("Error on adding page: "+component.errorString());
         }
     }
 
