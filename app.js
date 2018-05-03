@@ -179,13 +179,18 @@ function extract(src,dest){
 
 /** Android related things **/
 function showAndroidStatusBar(){
+    if(Qt.platform.os !== "android") return;
+
     objTopToolBar.height = objAppUi.dpscale(75);
     objTopToolBar.appStatusBarHeight = objAppUi.dpscale(25);
+    objLeftDock.topBlockHeight = objAppUi.dpscale(25);
     objAndroidExtras.showSystemUi();
 }
 
 function hideAndroidStatusBar(){
+    if(Qt.platform.os !== "android") return;
     objAndroidExtras.hideSystemUi();
     objTopToolBar.height = objAppUi.dpscale(50);
     objTopToolBar.appStatusBarHeight = 0;
+    objLeftDock.topBlockHeight = 0;
 }

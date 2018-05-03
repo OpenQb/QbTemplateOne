@@ -7,8 +7,10 @@ import QtQuick.Controls.Material 2.3
 
 Rectangle{
     id: objLeftDock
-    width: QbCoreOne.isMobilePlatform()?QbCoreOne.scale(100):QbCoreOne.scale(50)
+    width: QbCoreOne.scale(50)
     height: parent.height
+    property int topBlockHeight: 0
+
     color: objAppTheme.changeTransparency("#000",200)
     x:-objLeftDock.width
     y:0
@@ -105,10 +107,18 @@ Rectangle{
     }
 
     Rectangle{
+        id: topBlock
+        width: objLeftDock.width
+        height: objLeftDock.topBlockHeight
+        anchors.top: parent.top
+        color: "black"
+    }
+
+    Rectangle{
         id: topButton
         width: objLeftDock.width
         height: width
-        anchors.top: parent.top
+        anchors.top: topBlock.bottom
         color: "black"
         Image{
             id: objLogo

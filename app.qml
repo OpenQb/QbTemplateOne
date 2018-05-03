@@ -42,6 +42,23 @@ QbApp {
         }
     }
 
+    Connections{
+        target: Qt.inputMethod
+        onVisibleChanged:{
+            if(!Qt.inputMethod.visible){
+                App.hideAndroidStatusBar();
+            }
+            else{
+                App.showAndroidStatusBar();
+            }
+        }
+
+        onKeyboardRectangleChanged: {
+            if (Qt.inputMethod.visible) {
+            }
+        }
+    }
+
     Component.onCompleted: {
         App.objAppTheme = objAppTheme;
         App.objPackageReader = objPackageReader;
