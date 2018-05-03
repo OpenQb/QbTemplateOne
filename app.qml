@@ -24,6 +24,10 @@ QbApp {
     onAppClosing: {
     }
 
+    onAppVisible: {
+        App.disableAndroidFullScreen();
+    }
+
     Keys.forwardTo: [objShortcut,objContentPlaceHolder]
 
     Item{
@@ -46,10 +50,10 @@ QbApp {
         target: Qt.inputMethod
         onVisibleChanged:{
             if(!Qt.inputMethod.visible){
-                App.hideAndroidStatusBar();
+                //App.hideAndroidStatusBar();
             }
             else{
-                App.showAndroidStatusBar();
+                //App.showAndroidStatusBar();
             }
         }
 
@@ -82,7 +86,7 @@ QbApp {
         App.objLeftDock = objLeftDock;
 
         App.setup(objAppUi);
-        App.hideAndroidStatusBar();
+        App.disableAndroidFullScreen();
         Appc.setup();
     }
 

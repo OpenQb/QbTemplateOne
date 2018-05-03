@@ -194,3 +194,19 @@ function hideAndroidStatusBar(){
     objTopToolBar.appStatusBarHeight = 0;
     objLeftDock.topBlockHeight = 0;
 }
+
+function enableAndroidFullScreen(){
+    if(Qt.platform.os !== "android") return;
+    objAndroidExtras.enableFullScreen();
+    objTopToolBar.height = objAppUi.dpscale(50);
+    objTopToolBar.appStatusBarHeight = 0;
+    objLeftDock.topBlockHeight = 0;
+}
+
+function disableAndroidFullScreen(){
+    if(Qt.platform.os !== "android") return;
+    objAndroidExtras.disableFullScreen();
+    objTopToolBar.height = objAppUi.dpscale(75);
+    objTopToolBar.appStatusBarHeight = objAppUi.dpscale(25);
+    objLeftDock.topBlockHeight = objAppUi.dpscale(25);
+}
