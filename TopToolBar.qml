@@ -55,28 +55,31 @@ ToolBar{
         hoverTextColor: "red"
     }
 
-    Column{
-        anchors.left: parent.left
+    Item{
+        id: objStatusBarPlaceHolder
+        width: parent.width
         anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.right: objCloseButton.visible?objCloseButton.left:parent.right
-        Item{
-            id: objStatusBarPlaceHolder
-            width: parent.width
-            Rectangle{
+        Rectangle{
+            anchors.fill: parent
+            color: objAppTheme.changeTransparency("#000",100)
+            Loader{
+                id: objAppStatusBar
                 anchors.fill: parent
-                color: objAppTheme.changeTransparency("#000",150)
-                Loader{
-                    id: objAppStatusBar
-                    anchors.fill: parent
-                }
             }
         }
+    }
+
+    Column{
+        anchors.left: parent.left
+        anchors.top: objStatusBarPlaceHolder.bottom
+        anchors.bottom: parent.bottom
+        anchors.right: objCloseButton.visible?objCloseButton.left:parent.right
+
 
         Item{
             id: objToolBarPlaceHolder
             width: parent.width
-            height: parent.height - objStatusBarPlaceHolder.height
+            height: parent.height
             Image{
                 id: objLogo
                 anchors.top: parent.top
