@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.3
 
 import Qb 1.0
 import Qb.Core 1.0
+import Qb.Android 1.0
 import "app.js" as App
 import "appc.js" as Appc
 
@@ -44,6 +45,7 @@ QbApp {
     Component.onCompleted: {
         App.objAppTheme = objAppTheme;
         App.objPackageReader = objPackageReader;
+        App.objAndroidExtras = objAndroidExtras;
 
         App.objTopToolBar = objTopToolBar;
         App.appToolBarLoader = objTopToolBar.appToolBar;
@@ -63,6 +65,7 @@ QbApp {
         App.objLeftDock = objLeftDock;
 
         App.setup(objAppUi);
+        App.hideAndroidStatusBar();
         Appc.setup();
     }
 
@@ -72,6 +75,10 @@ QbApp {
 
     QbAppPackageReader{
         id: objPackageReader
+    }
+
+    QbAndroidExtras{
+        id: objAndroidExtras
     }
 
     LeftDock{
@@ -101,8 +108,8 @@ QbApp {
             anchors.left: parent.left
             anchors.right: parent.right
             focus: true
-            height: QbCoreOne.os() === "android"?QbCoreOne.scale(75):QbCoreOne.scale(50)
-            appStatusBarHeight: QbCoreOne.os() === "android"?QbCoreOne.scale(25):0
+            height: QbCoreOne.scale(50)
+            appStatusBarHeight: 0
             appLogo: objAppUi.absoluteURL("/images/logo.png")
             appPrevButtonVisible: objMainView.currentIndex>0
             appNextButtonVisible: objMainView.currentIndex<(objMainView.count-1)
@@ -458,5 +465,9 @@ QbApp {
 
     function  getCurrentPage(){
         return objMainView.currentItem;
+    }
+
+    function dpscale(num){
+        return QbCoreOne.scale(num);
     }
 }

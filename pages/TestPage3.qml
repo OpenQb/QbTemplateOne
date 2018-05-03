@@ -8,15 +8,23 @@ import Qb.Core 1.0
 
 QbPage {
     id: objPage
-    title: "TestPage3"
+    title: "QbPaths"
 
-    leftBar: Component{Rectangle{color: "black"}}
-    rightBar: Component{Rectangle{color: "blue"}}
+    QbPaths{
+        id: objPaths
+    }
+    onPageCreated: {
+        logIt.append(objPaths.qtbin());
+        logIt.append(objPaths.qtdata());
+        logIt.append(objPaths.qtlibrary());
+        logIt.append(objPaths.qtplugins());
+        logIt.append(objPaths.qtqml());
+    }
 
-    Text{
+    TextEdit{
+        id: logIt
         anchors.fill: parent
         anchors.centerIn: parent
         wrapMode: Text.Wrap
-        text: "TestPage 3"
     }
 }

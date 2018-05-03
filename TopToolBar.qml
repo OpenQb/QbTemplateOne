@@ -41,9 +41,9 @@ ToolBar{
     CloseButton{
         id: objCloseButton
         anchors.right: parent.right
-        anchors.top: parent.top
-        height: parent.height
-        width: height
+        anchors.bottom: parent.bottom
+        height: objToolBarPlaceHolder.height
+        width: objToolBarPlaceHolder.height
         visible: appCloseButtonVisible
         z: 1000
         onClicked: {

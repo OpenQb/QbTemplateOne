@@ -7,7 +7,7 @@ import QtQuick.Controls.Material 2.3
 
 Rectangle{
     id: objLeftDock
-    width: QbCoreOne.scale(50)
+    width: QbCoreOne.isMobilePlatform()?QbCoreOne.scale(100):QbCoreOne.scale(50)
     height: parent.height
     color: objAppTheme.changeTransparency("#000",200)
     x:-objLeftDock.width

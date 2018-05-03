@@ -19,6 +19,8 @@ var objRightSideBar;
 var appLeftSideBarLoader;
 var appRightSideBarLoader;
 
+var objAndroidExtras;
+
 
 function setup(appUi){
     objAppUi = appUi;
@@ -173,3 +175,17 @@ function extract(src,dest){
     return objPackageReader.extract(src,dest);
 }
 /** END QbAppPackageReader **/
+
+
+/** Android related things **/
+function showAndroidStatusBar(){
+    objTopToolBar.height = objAppUi.dpscale(75);
+    objTopToolBar.appStatusBarHeight = objAppUi.dpscale(25);
+    objAndroidExtras.showSystemUi();
+}
+
+function hideAndroidStatusBar(){
+    objAndroidExtras.hideSystemUi();
+    objTopToolBar.height = objAppUi.dpscale(50);
+    objTopToolBar.appStatusBarHeight = 0;
+}
