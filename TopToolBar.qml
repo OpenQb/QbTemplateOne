@@ -63,9 +63,13 @@ ToolBar{
         Item{
             id: objStatusBarPlaceHolder
             width: parent.width
-            Loader{
-                id: objAppStatusBar
+            Rectangle{
                 anchors.fill: parent
+                color: objAppTheme.changeTransparency("#000",150)
+                Loader{
+                    id: objAppStatusBar
+                    anchors.fill: parent
+                }
             }
         }
 
