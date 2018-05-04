@@ -10,6 +10,7 @@ import "../app.js" as Appc
 
 Page{
     id: objPage
+    property bool isClosable: true
     topPadding: 0
     bottomPadding: 0
     leftPadding: 0

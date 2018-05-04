@@ -9,6 +9,7 @@ import Qb.Core 1.0
 QbPage {
     id: objPage
     title: "QbPaths"
+    isClosable: false
 
     QbPaths{
         id: objPaths

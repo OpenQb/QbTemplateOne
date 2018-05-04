@@ -134,7 +134,7 @@ QbApp {
             appLogo: objAppUi.absoluteURL("/images/logo.png")
             appPrevButtonVisible: objMainView.currentIndex>0
             appNextButtonVisible: objMainView.currentIndex<(objMainView.count-1)
-            appCloseButtonVisible: objMainView.currentIndex>0
+            appCloseButtonVisible: objMainView.currentIndex>0 && objMainView.currentItem.isClosable
             z: 10000
 
             onLogoClicked: {
