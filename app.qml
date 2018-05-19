@@ -13,6 +13,7 @@ QbApp {
     minimumHeight: 400
     minimumWidth: 450
     property string gridState: "xs"
+    property bool isAddingPage: false;
     property int leftSideBarWidth: 0
     property int rightSideBarWidth: 0
     clip:true
@@ -354,7 +355,49 @@ QbApp {
     }
 
     function pushPage(page,jsobject){
-        var component = Qt.createComponent(objAppUi.absoluteURL(page));
+        objAppUi.isAddingPage = true;
+        try{
+            if(QbCoreOne.isSingleWindowMode() === true || QbCoreOne.isWebglPlatofrm() === true){
+                pushPageDirect(objAppUi.absoluteURL(page),jsobject);
+            }
+            else{
+                pushPageIncubate(objAppUi.absoluteURL(page),jsobject);
+            }
+        }
+        catch(e){
+            pushPageIncubate(page,jsobject);
+        }
+    }
+
+    function addRemotePage(page,jsobject){
+        objAppUi.isAddingPage = true;
+        try{
+            pushPageIncubate(page,jsobject)
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    function pushPageDirect(page,jsobject){
+        var component = Qt.createComponent(page);
+        if(component.status === Component.Ready){
+            var nobj;
+            if(jsobject !== undefined){
+                nobj = component.createObject(objMainView,jsobject);
+            }
+            else{
+                nobj = component.createObject(objMainView);
+            }
+
+            if(nobj){
+                setupPage(nobj);
+            }
+        }
+    }
+
+    function pushPageIncubate(page,jsobject){
+        var component = Qt.createComponent(page);
         var incubator = null;
         if(component.status === Component.Ready){
             if(jsobject !== undefined){
@@ -372,6 +415,7 @@ QbApp {
                         setupPage(incubator.object);
                     }
                     else if(status === Component.Error){
+                        objAppUi.isAddingPage = false;
                         console.log("Error on adding page: "+component.errorString());
                     }
                 }
@@ -381,6 +425,7 @@ QbApp {
             }
         }
         else{
+            objAppUi.isAddingPage = false;
             console.log("Error on adding page: "+component.errorString());
         }
     }
@@ -468,6 +513,7 @@ QbApp {
         hideLeftSideBar();
         hideRightSideBar();
         objTopToolBar.resetAnimationState();
+        objAppUi.isAddingPage = false;
     }
 
     function setupPage2(objPage){

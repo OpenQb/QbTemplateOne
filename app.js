@@ -35,8 +35,20 @@ function setup(appUi){
     objAppTheme.setThemeFromJsonData(JSON.stringify(themeOne));
 }
 
+function setTheme(jsobject){
+    objAppTheme.setThemeFromJsonData(JSON.stringify(jsobject));
+}
+
+function appId(){
+    return objAppUi.appId;
+}
+
 function addPage(page,jsobject){
     objAppUi.pushPage(page,jsobject);
+}
+
+function addRemotePage(page,jsobject){
+    objAppUi.addRemotePage(page,jsobject);
 }
 
 function getCurrentPage(){
